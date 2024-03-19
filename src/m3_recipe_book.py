@@ -1,5 +1,5 @@
 ###############################################################################
-# TODO: 1. (6 pts)
+# DONE: 1. (6 pts)
 #
 #   For this _TODO_, we are going to bring together many of the concepts that
 #   we have learned.
@@ -35,9 +35,45 @@
 #
 #   Once you have done this, then change the above _TODO_ to DONE.
 ###############################################################################
+def main():
+    print("Welcome to Recipe Book!")
+    
+    recipes = []
+    
+    while True:
+        recipe = {}
+        
+        recipe_name = input("Please enter a recipe name: ")
+        if recipe_name.lower() == 'end':
+            break
+        
+        recipe["name"] = recipe_name
+        ingredients = set()
+        
+        while True:
+            ingredient = input("Please enter an ingredient: ")
+            if ingredient.lower() == 'end':
+                break
+            
+            ingredients.add(ingredient)
+        
+        recipe["ingredients"] = ingredients
+        recipes.append(recipe)
+    
+    
+    print("Your recipes:")
+    for index, recipe in enumerate(recipes, start=1):
+        print(f"Recipe {index}:")
+        print(f"Name: {recipe['name']}")
+        print("Ingredients:")
+        for ingredient in recipe['ingredients']:
+            print(f"- {ingredient}")
+        print()
+
+main()
 
 ###############################################################################
-# TODO: 2. EXTRA CREDIT (2 pts)
+# DONE: 2. EXTRA CREDIT (2 pts)
 #
 #   For this extra credit _TODO_, try to look into how you could print out the
 #   recipes in a better format that is a little easier to read. Your solution
